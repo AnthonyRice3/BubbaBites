@@ -259,7 +259,7 @@ export default function Home() {
                   {cookie.description}
                 </p>
                 <button className="w-full bg-linear-to-r from-pink-500 to-pink-300 text-white py-2 px-4 rounded-lg font-semibold hover:from-pink-600 hover:to-pink-300 transition-all transform hover:scale-105 cursor-pointer">
-                  Add to Cart
+                  Buy Now
                 </button>
               </div>
             </div>
