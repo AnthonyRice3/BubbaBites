@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 const cookies = [
   {
@@ -88,6 +91,8 @@ const cookies = [
 ];
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-linear-to-b from-pink-50 to-pink-50">
       {/* Navigation Bar */}
@@ -97,18 +102,75 @@ export default function Home() {
             <div className="flex items-center">
               <h2 className="text-2xl font-bold text-pink-400">🍪 Bubba Bites</h2>
             </div>
+            
+            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               <a href="#home" className="text-gray-700 hover:text-pink-400 transition-colors font-medium">Home</a>
               <a href="#flavors" className="text-gray-700 hover:text-pink-400 transition-colors font-medium">Flavors</a>
               <a href="/About" className="text-gray-700 hover:text-pink-400 transition-colors font-medium">About</a>
               <a href="/About#contact" className="text-gray-700 hover:text-pink-400 transition-colors font-medium">Contact</a>
             </div>
+            
             <div className="flex items-center space-x-4">
-              <button className="bg-pink-400 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-pink-500 transition-all cursor-pointer">
+              <button className="hidden md:block bg-pink-400 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-pink-500 transition-all cursor-pointer">
                 Order Now
+              </button>
+              
+              {/* Hamburger Menu Button */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden text-gray-700 hover:text-pink-400 focus:outline-none cursor-pointer"
+                aria-label="Toggle menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {isMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
               </button>
             </div>
           </div>
+          
+          {/* Mobile Menu Dropdown */}
+          {isMenuOpen && (
+            <div className="md:hidden pb-4 animate-fade-in-up">
+              <div className="flex flex-col space-y-3">
+                <a
+                  href="#home"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-gray-700 hover:text-pink-400 hover:bg-pink-50 px-4 py-2 rounded-lg transition-colors font-medium"
+                >
+                  Home
+                </a>
+                <a
+                  href="#flavors"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-gray-700 hover:text-pink-400 hover:bg-pink-50 px-4 py-2 rounded-lg transition-colors font-medium"
+                >
+                  Flavors
+                </a>
+                <a
+                  href="/About"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-gray-700 hover:text-pink-400 hover:bg-pink-50 px-4 py-2 rounded-lg transition-colors font-medium"
+                >
+                  About
+                </a>
+                <a
+                  href="/About#contact"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-gray-700 hover:text-pink-400 hover:bg-pink-50 px-4 py-2 rounded-lg transition-colors font-medium"
+                >
+                  Contact
+                </a>
+                <button className="bg-pink-400 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-pink-500 transition-all cursor-pointer">
+                  Order Now
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
