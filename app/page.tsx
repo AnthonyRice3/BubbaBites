@@ -104,7 +104,7 @@ export default function Home() {
               <a href="/About#contact" className="text-gray-700 hover:text-pink-400 transition-colors font-medium">Contact</a>
             </div>
             <div className="flex items-center space-x-4">
-              <button className="bg-pink-400 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-pink-500 transition-all">
+              <button className="bg-pink-400 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-pink-500 transition-all cursor-pointer">
                 Order Now
               </button>
             </div>
@@ -122,7 +122,7 @@ export default function Home() {
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light">
             Handcrafted cookies made with love, premium ingredients, and a whole lot of flavor
           </p>
-          <button className="bg-white text-pink-300 px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-50 transition-all transform hover:scale-105 shadow-lg">
+          <button className="bg-white text-pink-300 px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-50 transition-all transform hover:scale-105 shadow-lg cursor-pointer">
             Order Now
           </button>
           
@@ -149,17 +149,17 @@ export default function Home() {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-3 gap-8 text-center">
-          <div className="p-6">
+          <div className="p-6 animate-fade-in-up animate-delay-100">
             <div className="text-5xl mb-4">🍪</div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">Fresh Daily</h3>
             <p className="text-gray-600">Baked fresh every morning with premium ingredients</p>
           </div>
-          <div className="p-6">
+          <div className="p-6 animate-fade-in-up animate-delay-200">
             <div className="text-5xl mb-4">🎉</div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">12 Flavors</h3>
             <p className="text-gray-600">Something delicious for every taste and occasion</p>
           </div>
-          <div className="p-6">
+          <div className="p-6 animate-fade-in-up animate-delay-300">
             <div className="text-5xl mb-4">❤️</div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">Made with Love</h3>
             <p className="text-gray-600">Every cookie is crafted with care and passion</p>
@@ -169,22 +169,23 @@ export default function Home() {
 
       {/* Cookies Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="flavors">
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
+        <h2 className="text-4xl font-bold text-center text-gray-800 mb-12 animate-fade-in-up">
           Our Cookie Collection
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {cookies.map((cookie) => (
+          {cookies.map((cookie, index) => (
             <div
               key={cookie.id}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl"
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl hover-float animate-scale-in animate-delay-${Math.min((index % 6) + 1, 6) * 100}`}
             >
-              <div className="relative h-64 w-full bg-gray-200">
+              <div className="relative h-64 w-full bg-gray-200 overflow-hidden group">
                 <Image
                   src={cookie.image}
                   alt={cookie.name}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-pink-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
@@ -194,7 +195,7 @@ export default function Home() {
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   {cookie.description}
                 </p>
-                <button className="w-full bg-linear-to-r from-pink-500 to-pink-300 text-white py-2 px-4 rounded-lg font-semibold hover:from-pink-600 hover:to-pink-300 transition-all">
+                <button className="w-full bg-linear-to-r from-pink-500 to-pink-300 text-white py-2 px-4 rounded-lg font-semibold hover:from-pink-600 hover:to-pink-300 transition-all transform hover:scale-105 cursor-pointer">
                   Add to Cart
                 </button>
               </div>
@@ -203,22 +204,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-linear-to-r from-pink-300 to-pink-200 text-white py-20">
+      <section className="bg-linear-to-r from-pink-300 to-pink-200 text-white py-20 animate-fade-in-up">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-up animate-delay-100">
             Ready to Treat Yourself?
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-xl mb-8 opacity-90 animate-fade-in-up animate-delay-200">
             Order a dozen (or two!) and experience cookie perfection delivered to your door
           </p>
-          {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-pink-300 px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-50 transition-all transform hover:scale-105 shadow-lg">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-300">
+            <button className="bg-white text-pink-300 px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-50 transition-all transform hover:scale-105 shadow-lg hover:shadow-2xl cursor-pointer">
               Order Online
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-pink-300 transition-all">
+            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-pink-300 transition-all transform hover:scale-105 cursor-pointer">
               Visit Our Store
             </button>
-          </div> */}
+          </div>
         </div>
       </section>
 

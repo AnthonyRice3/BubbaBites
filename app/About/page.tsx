@@ -15,7 +15,7 @@ export default function About() {
               <a href="/About/#contact" className="text-gray-700 hover:text-pink-400 transition-colors font-medium">Contact</a>
             </div>
             <div className="flex items-center space-x-4">
-              <button className="bg-pink-400 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-pink-500 transition-all">
+              <button className="bg-pink-400 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-pink-500 transition-all cursor-pointer">
                 Order Now
               </button>
             </div>
@@ -31,7 +31,7 @@ export default function About() {
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light">
             Handcrafted cookies made with love, premium ingredients, and a whole lot of flavor
           </p>
-          <button className="bg-white text-pink-300 px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-50 transition-all transform hover:scale-105 shadow-lg">
+          <button className="bg-white text-pink-300 px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-50 transition-all transform hover:scale-105 shadow-lg cursor-pointer">
             Order Now
           </button>
           
@@ -60,14 +60,14 @@ export default function About() {
       {/* About Us Section */}
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16 animate-fade-in-up">
             About Bubba Bites
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             {/* Owner Photo Placeholder */}
-            <div className="relative">
-              <div className="aspect-square bg-linear-to-br from-pink-100 to-pink-200 rounded-2xl shadow-xl flex items-center justify-center overflow-hidden">
+            <div className="relative animate-fade-in-left">
+              <div className="aspect-square bg-linear-to-br from-pink-100 to-pink-200 rounded-2xl shadow-xl flex items-center justify-center overflow-hidden transition-all hover:shadow-2xl hover:scale-105">
                 <div className="text-center p-8">
                   <div className="text-8xl mb-4">👨‍🍳</div>
                   <p className="text-gray-600 font-medium">Owner Photo</p>
@@ -77,7 +77,7 @@ export default function About() {
             </div>
             
             {/* About Text */}
-            <div>
+            <div className="animate-fade-in-right">
               <h3 className="text-3xl font-bold text-gray-800 mb-6">Our Story</h3>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
@@ -122,8 +122,8 @@ export default function About() {
           </div>
 
           {/* Contact Form */}
-          <div className="max-w-3xl mx-auto" id="contact">
-            <div className="bg-linear-to-br from-pink-50 to-white rounded-2xl shadow-xl p-8 md:p-12">
+          <div className="max-w-3xl mx-auto animate-fade-in-up" id="contact">
+            <div className="bg-linear-to-br from-pink-50 to-white rounded-2xl shadow-xl p-8 md:p-12 transition-all hover:shadow-2xl">
               <h3 className="text-3xl font-bold text-gray-800 mb-6 text-center">Get In Touch</h3>
               <p className="text-gray-600 text-center mb-8">
                 Have a question or want to place a custom order? We'd love to hear from you!
@@ -186,13 +186,32 @@ export default function About() {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="bg-linear-to-r from-pink-400 to-pink-500 text-white px-10 py-4 rounded-full text-lg font-semibold hover:from-pink-500 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg"
+                    className="bg-linear-to-r from-pink-400 to-pink-500 text-white px-10 py-4 rounded-full text-lg font-semibold hover:from-pink-500 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg cursor-pointer"
                   >
                     Send Message
                   </button>
                 </div>
               </form>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-linear-to-r from-pink-300 to-pink-200 text-white py-20 animate-fade-in-up">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-up animate-delay-100">
+            Ready to Treat Yourself?
+          </h2>
+          <p className="text-xl mb-8 opacity-90 animate-fade-in-up animate-delay-200">
+            Order a dozen (or two!) and experience cookie perfection delivered to your door
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-300">
+            <button className="bg-white text-pink-300 px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-50 transition-all transform hover:scale-105 shadow-lg hover:shadow-2xl cursor-pointer">
+              Order Online
+            </button>
+            <button className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-pink-300 transition-all transform hover:scale-105 cursor-pointer">
+              Visit Our Store
+            </button>
           </div>
         </div>
       </section>
