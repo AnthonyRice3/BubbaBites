@@ -24,14 +24,15 @@ export default function About() {
             </div>
             
             <div className="flex items-center space-x-4">
-              <button className="hidden md:block bg-pink-400 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-pink-500 transition-all cursor-pointer">
+              {/* Desktop Order Button - hidden on mobile */}
+              <button className="hidden md:inline-block bg-pink-400 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-pink-500 transition-all cursor-pointer">
                 Order Now
               </button>
               
-              {/* Hamburger Menu Button */}
+              {/* Hamburger Menu Button - only visible on mobile */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden text-gray-700 hover:text-pink-400 focus:outline-none cursor-pointer"
+                className="block md:hidden text-gray-700 hover:text-pink-400 focus:outline-none cursor-pointer"
                 aria-label="Toggle menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
